@@ -1,1 +1,1 @@
-web: gunicorn fb_page_manager.wsgi --log-file -
+web: gunicorn mysite.wsgi --log-file -
