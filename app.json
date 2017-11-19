@@ -1,0 +1,16 @@
+{
+  "name": "Django, FB page manager.",
+  "description": "A django app, which can easily manage an FB app.",
+  "image": "heroku/python",
+  "repository": "https://github.com/Shibiraj/fb_page_manager.git",
+  "keywords": ["python", "django" ],
+  "addons": [ "heroku-postgresql" ],
+  "environments": {
+    "test": {
+      "scripts": {
+        "test-setup": "python manage.py collectstatic --noinput",
+        "test": "python manage.py test"
+      }
+    }
+  }
+}
