@@ -48,9 +48,11 @@ def home(request):
     # Home page of the application
     social_user = request.user.social_auth.filter(provider='facebook', ).first() 
     access_token = social_user.extra_data['access_token']
+    print (access_token, "????????????????????????????")
     fb_page_manager = FacebookPageManager(access_token)
     page_info = fb_page_manager.get_page_info()
-    return render(request, 'fb_app/home.html', context=page_info)
+    print (page_info, "PAGE INFOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+    return render(request, 'fb/home.html', context=page_info)
 
 @login_required
 def update_page_info(request):
