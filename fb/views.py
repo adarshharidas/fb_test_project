@@ -43,7 +43,7 @@ class FacebookPageManager(object):
         return json.loads(resp.text)
 
 
-@login_required
+# @login_required
 def home(request):
     # Home page of the application
     social_user = request.user.social_auth.filter(provider='facebook', ).first() 
