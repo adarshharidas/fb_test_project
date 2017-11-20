@@ -22,7 +22,7 @@ from django.contrib.auth import views as auth_views
 from fb import views
 
 urlpatterns = [
-    # url(r'^$', views.home, name='home'),
+    url(r'^$', views.home, name='home'),
     # url(r'^update-page-info$', views.update_page_info, name='update_page_info'),
     url(r'^login/$', auth_views.login, kwargs={'template_name': 'fb/login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
