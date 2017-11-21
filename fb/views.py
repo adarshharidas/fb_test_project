@@ -51,7 +51,7 @@ def home(request):
     print (access_token, "????????????????????????????")
     fb_page_manager = FacebookPageManager(access_token)
     page_info = fb_page_manager.get_page_info()
-    print (page_info, "PAGE INFOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+    print (page_info, "PAGE INFOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO", type(page_info), ">>>>>>>>>>>>>>>>>>>")
     return render(request, 'fb/home.html', context=page_info)
 
 @login_required
