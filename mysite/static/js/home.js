@@ -1,7 +1,6 @@
 $(document).ready(function() {
 	// body...
-	console.log("hereeeee")
-
+	
 	$("#update_page_form").submit(function(e) {
         e.preventDefault();
     }).validate({
