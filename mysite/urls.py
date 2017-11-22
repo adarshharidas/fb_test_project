@@ -23,7 +23,7 @@ from fb import views
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
-    # url(r'^update-page-info$', views.update_page_info, name='update_page_info'),
+    url(r'^update-page$', views.update_page_info, name='update_page'),
     url(r'^login/$', auth_views.login, kwargs={'template_name': 'fb/login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),  # <--

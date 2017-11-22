@@ -37,7 +37,7 @@ $(document).ready(function() {
         },
         submitHandler: function(form) { 
             $.ajax({
-                url: '/update-page-info', 
+                url: '/update-page', 
                 type: 'POST',
                 data: $('#update_page_form').serialize(),
                 success: function(data){
