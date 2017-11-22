@@ -41,6 +41,7 @@ $(document).ready(function() {
                 type: 'POST',
                 data: $('#update_page_form').serialize(),
                 success: function(data){
+                	console.log(data, "::::::::::::::::::::::::::::::")
                     window.location = '/?st='+data['success']+'&em='+data['eum']
                 }
             });

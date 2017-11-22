@@ -38,7 +38,7 @@ class FacebookPageManager(object):
         print (data, "??????????????????????????????????????????????????")
         # location =  '{'+'"city": "{city}", "street": "{street}", "state": "{state}", "country": "{country}", "zip": "{zip}"'.format(city=data.get('city'), street=data.get('street'),  state=data.get('state'), country=data.get('country'), zip=data.get('zip')) + '}'
         # payload = {'access_token': data.get('access_token'), 'about' : data.get('about',''),'phone' : data.get('phone',''), 'emails' : '["{}",]'.format(data.get('emails')), 'location' : location}
-        payload = {'access_token': data.get('access_token'), 'about' : data.get('about',''),'phone' : data.get('phone',''), 'emails' : '["{}",]'.format(data.get('emails'))}
+        payload = {'access_token': data.get('access_token'), 'about' : data.get('about',''),'phone' : data.get('phone',''), 'emails' : data.get('emails')}
         url = '{}/{}/'.format(self.API_ENDPOINT, data.get('id'))
         resp = requests.post(url, params = payload)
         print('Page update response ', resp.text)
