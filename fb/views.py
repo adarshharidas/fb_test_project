@@ -38,7 +38,8 @@ class FacebookPageManager(object):
         print (data, "??????????????????????????????????????????????????")
         # location =  '{'+'"city": "{city}", "street": "{street}", "state": "{state}", "country": "{country}", "zip": "{zip}"'.format(city=data.get('city'), street=data.get('street'),  state=data.get('state'), country=data.get('country'), zip=data.get('zip')) + '}'
         # payload = {'access_token': data.get('access_token'), 'about' : data.get('about',''),'phone' : data.get('phone',''), 'emails' : '["{}",]'.format(data.get('emails')), 'location' : location}
-        payload = {'access_token': data.get('access_token'), 'about' : data.get('about',''),'phone' : data.get('phone',''), 'emails' : data.get('emails')[0]}
+        payload = {'access_token': data.get('access_token'), 'about' : data.get('about',''),'phone' : data.get('phone',''), 'emails' : '["{}",]'.format(data.get('emails'))}
+        print (payload, "|||||||||||||||||||||||||||||||||||||||")
         url = '{}/{}/'.format(self.API_ENDPOINT, data.get('id'))
         resp = requests.post(url, params = payload)
         print('Page update response ', resp.text)
@@ -50,10 +51,8 @@ def home(request):
     # Home page of the application
     social_user = request.user.social_auth.filter(provider='facebook', ).first() 
     access_token = social_user.extra_data['access_token']
-    print (access_token, "????????????????????????????")
     fb_page_manager = FacebookPageManager(access_token)
     page_info = fb_page_manager.get_page_info()
-    print (page_info, "PAGE INFOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO", type(page_info), ">>>>>>>>>>>>>>>>>>>")
     return render(request, 'fb/home.html', context=page_info)
 
 @login_required
