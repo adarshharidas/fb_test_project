@@ -41,11 +41,10 @@ $(document).ready(function() {
                 data: $('#update_page_form').serialize(),
                 success: function(data){
                 	console.log(data, "::::::::::::::::::::::::::::::")
-                	swal("Success", 'Updated', 'success');
+                	// swal("Success", 'Updated', 'success');
                     window.location = '/?st='+data['success']+'&em='+data['eum']
                 }
             });
-            swal("Error", 'Uh oh! Some thing went wrong!', 'error');
             return false;  //This doesn't prevent the form from submitting.
         }
     });
