@@ -65,6 +65,3 @@ def update_page_info(request):
         data = fb_page_manager.update_page_info(request.POST)
         error_user_msg = data.get('error').get('error_user_msg') if data.get('error') else ''
         return HttpResponse(json.dumps({'success' : 1 if data.get('success') else 2, 'eum' : error_user_msg}), content_type="application/json")
-from django.shortcuts import render
-
-# Create your views here.
