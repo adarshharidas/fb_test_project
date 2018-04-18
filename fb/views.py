@@ -30,19 +30,15 @@ class FacebookPageManager(object):
             page_info.update({'listed' : True, 'located_in_us' : located_in_us})
         else:
             page_info = {'listed' : False}
-        print('Page get info response ', page_info)
         return page_info
 
     def update_page_info(self, data):
         # updates facebook page information
-        print (data, "??????????????????????????????????????????????????")
         # location =  '{'+'"city": "{city}", "street": "{street}", "state": "{state}", "country": "{country}", "zip": "{zip}"'.format(city=data.get('city'), street=data.get('street'),  state=data.get('state'), country=data.get('country'), zip=data.get('zip')) + '}'
         # payload = {'access_token': data.get('access_token'), 'about' : data.get('about',''),'phone' : data.get('phone',''), 'emails' : '["{}",]'.format(data.get('emails')), 'location' : location}
         payload = {'access_token': data.get('access_token'), 'about' : data.get('about',''),'phone' : data.get('phone',''), 'emails' : '["{}",]'.format(data.get('emails'))}
-        print (payload, "|||||||||||||||||||||||||||||||||||||||")
         url = '{}/{}/'.format(self.API_ENDPOINT, data.get('id'))
         resp = requests.post(url, params = payload)
-        print('Page update response ', resp.text)
         return json.loads(resp.text)
 
 
